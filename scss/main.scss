@@ -1,0 +1,310 @@
+@use "sass:map";
+$theme-colors: (
+  "primary": #ff7900,
+  "secondary": #999,
+  "light": #f5f5f5,
+  "dark": #000,
+);
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+body {
+  color: map.get($theme-colors, "dark");
+  font-family: Arial;
+  line-height: 1.2;
+  font-size: 0.85rem;
+}
+
+a {
+  color: map.get($theme-colors, "primary");
+  text-decoration: none;
+  &:hover {
+    color: map.get($theme-colors, "primary");
+    text-decoration: underline;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: bold;
+}
+
+h5 {
+  font-weight: bold;
+  small {
+    color: map.get($theme-colors, "secondary");
+    font-size: .85rem;
+    font-weight: normal;
+  }
+}
+
+.btn-secondary {
+  border-radius: 0;
+  font-weight: bold;
+  background: transparent;
+  border: 2px solid map.get($theme-colors, "dark");
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-size: 0.85rem;
+  &:hover {
+    background-color: map.get($theme-colors, "dark");
+    color: map.get($theme-colors, "light");
+    text-decoration: none;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+.card-fee {
+  h2 {
+    line-height: 1;
+    small {
+      font-size: 0.85rem;
+      display: block;
+    }
+  }
+  h4 {
+    font-weight: bold;
+    small {
+      font-size: 0.85rem;
+      display: block;
+      font-weight: normal;
+    }
+  }
+  .btn {
+    font-weight: bold;
+    font-size: 0.85rem;
+  }
+  .list-group {
+    list-style: none;
+    li {
+      &:before {
+        content: "\2022";
+        color: map.get($theme-colors, "primary");
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+    }
+  }
+}
+
+.bg-half-black {
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -250px;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to top left,map.get($theme-colors, "dark") 50%, map.get($theme-colors, "light") 50%);
+  }
+  >* {
+    position: relative;
+  }
+}
+
+.footnote {
+  img {
+    padding-right: 2rem;
+  }
+}
+
+.container-slider {
+  .select-container {
+    width: auto;
+    select {
+      cursor: pointer;
+    }
+  }
+  .hidden {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    position: absolute;
+  }
+  .slider {
+    .slider-item {
+      margin: 5px;
+    }
+    .slider-item-inner {
+      min-height: 60px;
+    }
+    .slick-arrow {
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 0;
+      border: 1px solid map.get($theme-colors, "secondary");
+      color: map.get($theme-colors, "secondary");
+      border-radius: 100%;
+      width: 25px;
+      height: 25px;
+      background-color: map.get($colors, "white");
+      padding: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+    .slick-prev {
+      left: 20px;
+    }
+    .slick-next {
+      right: 20px;
+    }
+    .slick-arrow:before {
+      font-size: .85rem;
+    }
+    .slick-prev:before {
+      content: "\f053";
+    }
+    .slick-next:before {
+      content: "\f054";
+    }
+  }
+}
+
+.slider-hbo {
+  .card-title .bg-dark {
+    font-size: .75rem;
+    font-weight: normal;
+  }
+  .slick-slide {
+    margin: 0 20px;
+  }
+  .slick-list {
+    margin: 0 -20px;
+  }
+  .slick-dots {
+    position: absolute;
+    bottom: -47px;
+  }
+  .slick-dots {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    left: 0;
+    right: 0;
+    li {
+      display: inline-block;
+      margin: 0 2px;
+      button {
+        border: none;
+        border-radius: 100%;
+        background-color: map.get($theme-colors, "secondary");    
+        cursor: pointer;
+        width: 10px;
+        height: 10px;
+        font-size: 0;
+        padding: 0;
+      }
+    }
+    .slick-active {
+      button {
+        background-color: map.get($theme-colors, "primary");  
+      }
+    }
+  }
+}
+
+.accordion {
+  .accordion-button {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: map.get($theme-colors, "dark");    
+    padding-right: 80px !important;
+  }
+  .accordion-button::after {
+    background: none;
+    top: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    content: '+';
+    color: map.get($theme-colors, "primary");
+    font-size: 2rem;
+    right: 20px;
+    width: auto;
+    height: auto;
+  }
+  .accordion-button:not(.collapsed)::after {
+    background: none;
+    transform: translateY(-50%);
+    content: '-';
+    font-size: 2.5rem;
+  }
+}
+
+.blue-widget {
+  position: fixed;
+  top: 20%;
+  right: 0;
+  background-color: #4CB4E6;
+  max-width: 600px;
+  width: 100%;
+  transition: all .3s ease-in-out;
+  right: -350px;
+  cursor: pointer;
+  z-index: 99;;
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  &.js--active {
+    right: 0;
+    cursor: inherit;
+  }
+}
+
+.container-faq {
+  position: relative;
+  .container-btn {
+    text-align: center;
+    z-index: 1;
+    position: relative;
+  }
+  .btn {
+    min-width: 200px;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 180px;
+    z-index: 1;
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, white 70%, white 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, white 70%, white 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, white 70%, white 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70ffffff', endColorstr='#ffffff', GradientType=0);
+  }
+  .hidden {
+    display: none;
+  }
+  &.js--expanded {
+    &:before {
+      display: none;
+    }
+  }
+}
